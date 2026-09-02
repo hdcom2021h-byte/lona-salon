@@ -4148,6 +4148,37 @@
         );
 
 
+        /* =========================
+           نقطة الدخول الرئيسية
+        ========================= */
+
+        function resetInitialScrollPosition() {
+
+            if (window.location.hash) {
+                return;
+            }
+
+            if ("scrollRestoration" in window.history) {
+                window.history.scrollRestoration = "manual";
+            }
+
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "auto"
+            });
+
+        }
+
+
+        resetInitialScrollPosition();
+
+        window.addEventListener(
+            "pageshow",
+            resetInitialScrollPosition
+        );
+
+
         /* بدء الصفحة */
 
         initializePage();
